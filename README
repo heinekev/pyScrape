@@ -1,8 +1,11 @@
  threadscrape.py
  now with threads!
  -----------------
+ 
+ scrape.py - no threading, very slow
+ threadscrape.py - threaded, still slow but exponentially faster than above
 
- the entire purpose of this script is to iteratively scrape a web server for a given file
+ the purpose of this script is to iteratively scrape a web server for a given file
  in this case:  IMG_xxxx.JPG
  I define the range (0 through 9999) and divide the work up into 8 threads
  This is here for posterity and adaptability
