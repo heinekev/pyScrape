@@ -1,0 +1,63 @@
+ threadscrape.py
+ now with threads!
+ -----------------
+
+ the entire purpose of this script is to iteratively scrape a web server for a given file
+ in this case:  IMG_xxxx.JPG
+ I define the range (0 through 9999) and divide the work up into 8 threads
+ This is here for posterity and adaptability
+ I've included testing logic and results in this README
+ 
+ Kevin Anderson 5/6/2012
+
+ ----
+ 
+
+
+ Testing the logic with the following values:
+	start = 0
+	end = 9999
+	numthreads = 8
+
+ Also with the following debug prints:
+
+ for x in range(0,numthreads):
+	if x == 0:
+		print "x is 0: " + str(x)
+		print "x is 0: " + str(start)
+		newend = end / numthreads
+		print "x is 0: " + str(newend)
+		start = newend + 1 
+	else:
+		print str(x)
+		newend = start + end / numthreads
+		print 'else start: ' + str(start)
+		print 'else newend: ' + str(newend)
+		start = newend + 1
+
+
+ Heinepro:scrape heinekev$ python threadscrape.py
+ x is 0: 0
+ x is 0: 0
+ x is 0: 1249
+ 1
+ else start: 1250
+ else newend: 2499
+ 2
+ else start: 2500
+ else newend: 3749
+ 3
+ else start: 3750
+ else newend: 4999
+ 4
+ else start: 5000
+ else newend: 6249
+ 5
+ else start: 6250
+ else newend: 7499
+ 6
+ else start: 7500
+ else newend: 8749
+ 7
+ else start: 8750
+ else newend: 9999
